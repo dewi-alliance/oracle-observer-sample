@@ -19,9 +19,10 @@ This lambda ingestor should be setup in an AWS environment. You can follow the b
    - Upload the `lambda.zip` file to your lambda instance.
    - Add the DATABASE_URL as an environment variable to the lambda.
    - Note: See this [aws-lambda-rust-runtime](https://github.com/awslabs/aws-lambda-rust-runtime#deployment) repo as a reference.
-1. **Create EventBridge Rule**
-   - Create an AWS EventBridge rule that triggers when a file is uploaded to the S3 bucket you just created.
-   - Add the lambda function you just created as a target.
+1. **Create AWS S3 Events**
+   - From the S3 bucket's properties tab, create a new event notification.
+   - Set the prefix to `radio_reward_share.`, set the event type to `s3:ObjectCreated:*`, and set the destination to the lambda you created above.
+   - Create another event with the prefix of `gateway_reward_share.`
 1. **Sync data from Helium Foundation S3**
 
    - See [following documentation](https://docs.helium.com/oracles/oracle-data/).
