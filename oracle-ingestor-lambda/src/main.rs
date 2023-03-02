@@ -74,7 +74,7 @@ async fn handler(event: LambdaEvent<Value>) -> Result<Value, Error> {
                 if let chrono::LocalResult::Single(end_epoch) = end_epoch {
                     sqlx::query(
                         r#"
-                        INSERT INTO radio_rewards (amount, epoch_end, hotspot_key, cbsd_id)
+                        INSERT INTO mobile_poc_rewards (amount, epoch_end, hotspot_key, cbsd_id)
                         VALUES ($1, $2, $3, $4)
                         ON CONFLICT
                         DO NOTHING
@@ -96,7 +96,7 @@ async fn handler(event: LambdaEvent<Value>) -> Result<Value, Error> {
                 if let chrono::LocalResult::Single(end_period) = end_period {
                     sqlx::query(
                         r#"
-                        INSERT INTO lora_poc_rewards (beacon_amount, witness_amount, epoch_end, hotspot_key)
+                        INSERT INTO iot_poc_rewards (beacon_amount, witness_amount, epoch_end, hotspot_key)
                         VALUES ($1, $2, $3, $4)
                         ON CONFLICT
                         DO NOTHING

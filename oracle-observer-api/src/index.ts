@@ -4,11 +4,11 @@ import { db } from "./db";
 const app: Express = express();
 const port = process.env.PORT || 3000;
 
-app.get("/:hotspotKey/rewards/lora", async (req: Request, res: Response) => {
+app.get("/:hotspotKey/rewards/iot", async (req: Request, res: Response) => {
   try {
     const query = db
       .select("*")
-      .from("lora_poc_rewards")
+      .from("iot_poc_rewards")
       .where("hotspot_key", req.params.hotspotKey)
       .limit(20)
       .orderBy("epoch_end");
@@ -23,7 +23,7 @@ app.get("/:hotspotKey/rewards/mobile", async (req: Request, res: Response) => {
   try {
     const rewards = await db
       .select("*")
-      .from("radio_rewards")
+      .from("mobile_poc_rewards")
       .where("hotspot_key", req.params.hotspotKey)
       .limit(20)
       .orderBy("epoch_end");

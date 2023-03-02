@@ -1,4 +1,4 @@
-CREATE TABLE lora_poc_rewards (
+CREATE TABLE iot_poc_rewards (
     beacon_amount bigInt NOT NULL,
     witness_amount bigInt NOT NULL,
     epoch_end date NOT NULL,

@@ -1,4 +1,4 @@
-CREATE TABLE radio_rewards (
+CREATE TABLE mobile_poc_rewards (
     amount bigInt NOT NULL,
     epoch_end date NOT NULL,
     hotspot_key varchar(52) NOT NULL,
